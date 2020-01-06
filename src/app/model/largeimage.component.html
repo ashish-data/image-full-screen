@@ -1,0 +1,13 @@
+<GridLayout rows="*,auto" cols="*" (loaded)="onModalLoaded($event)">
+    <StackLayout row="0" id="img-holder">
+        <Label class="modalLabel" text="Drag image below if it is larger than your screen"></Label>
+        <ScrollView #imgScroll [orientation]="orientation">
+            <Image [src]="img" [decodeWidth]="imageWidth" [decodeHeight]="imageHeight"
+                loadMode="async" (loaded)="onImageLoaded($event);" (pinch)="onPinch($event)"
+                #dragImage class="largeImage" stretch="aspectFill"></Image>
+        </ScrollView>
+    </StackLayout>
+    <FlexboxLayout row="1">
+        <Button text="Close" (tap)="closeModal()" class="btn btn-primary"></Button>
+    </FlexboxLayout>
+</GridLayout>
